@@ -1,5 +1,8 @@
-let message;
+const button = document.querySelector("button");
 
-message = "Hello World!"
+function greet() {
+  const name = prompt("What is your name?");
+  alert(`Hello ${name}, nice to see you!`);
+}
 
-console.log(message);
+button.addEventListener("click", greet);
