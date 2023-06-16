@@ -15,8 +15,6 @@ function getRandomWord() {
     let input = input1.toLowerCase();
     if(input == randomWord) {
         output.innerHTML = "Draw!"
-
-
     } else {
         if(input == "paper") {
             if(randomWord == "scissors") {
@@ -30,10 +28,10 @@ function getRandomWord() {
             } else if(randomWord == "scissors") {
                 output.innerHTML = "You won! The computer played " + randomWord 
             }
-        } else if(input == "paper") {
-            if(randomWord == "scissors") {
+        } else if(input == "scissors") {
+            if(randomWord == "rock") {
                 output.innerHTML = "You lost! The computer played " + randomWord
-            } else if(randomWord == "rock") {
+            } else if(randomWord == "paper") {
                 output.innerHTML = "You won! The computer played " + randomWord 
             }
         }
