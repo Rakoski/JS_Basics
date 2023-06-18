@@ -1,0 +1,33 @@
+html {
+    font-family: sans-serif;
+  }
+
+body {
+    background-color: rgb(2, 23, 34);
+}
+
+#container {
+    background-color: black;
+    border: 5px solid beige;
+    height: 275px;
+    width: 750px;
+    margin-top: 300px;
+    margin-left: 550px;
+    text-align: center;
+    align-items: center;
+}
+  
+p {
+    color: white;
+    font-size: 24px;
+}
+
+#input {
+    width: 100px;
+    margin: 25px auto;
+}
+
+#bnt {
+    margin: 25px auto auto 5px;
+}
+
