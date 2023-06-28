@@ -1,5 +1,6 @@
 let currentDisplay = "";
 let previousNum = "";
+let isCalculationDone = false;
 let displayElement = document.getElementById("displayNumber");
 let previousOperationElement = document.getElementById("previous-operation")
 
@@ -8,20 +9,32 @@ function registerNumber(button) {
   currentDisplay += numberString;
   displayElement.textContent = currentDisplay;
   if(isOperatorPresent()) {
-    colocaEmCima(currentDisplay)
+    colocaEmCima(currentDisplay);
+    calculateExpression();
   }
 };
 
+function isOperator(character) {
+  const operators = ["+", "-", "*", "/"];
+  return operators.includes(character);
+}
+
 function registerOperator(button) {
-  if(currentDisplay != "") {
-    if (isOperatorPresent() && ["+", "-", "*", "/"].includes(numberString)) {
-      return;
-    }  
-    let operatorString = button.getAttribute("data-operator");
-    currentDisplay += operatorString;
-    displayElement.textContent = currentDisplay;
-    colocaEmCima(currentDisplay)
+  if (currentDisplay === '') {
+    return; 
   }
+
+  const operatorString = button.getAttribute("data-operator");
+  const lastCharacter = currentDisplay[currentDisplay.length - 1];
+
+  if (isOperator(lastCharacter)) {
+    currentDisplay = currentDisplay.slice(0, -1) + operatorString;
+  } else {
+    currentDisplay += operatorString;
+  }
+
+  displayElement.textContent = currentDisplay;
+  colocaEmCima(currentDisplay);
 };
 
 function isOperatorPresent() {
@@ -45,6 +58,12 @@ function colocaEmCima(oqueColocar) {
 };
 
 function calculateExpression() {
+  const lastCharacter = currentDisplay[currentDisplay.length - 1];
+
+  if (isOperator(lastCharacter)) {
+    return reset();
+  }
+
   let expression = previousOperationElement.textContent
   var operands = expression.split(/[-+*/]/);
   var operators = expression.split(/[\d.]+/).filter(Boolean);
