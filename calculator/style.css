@@ -18,11 +18,18 @@
 }
 
 .previous-operation {
-    height: 40%;
+    height: 60%;
+    font-size: 36px;
+    text-align: end;
+    margin-right: 10px;
+
 }
 
-.now-operation {
-    height: 60%;
+.current-number{
+    height: 30%;
+    font-size: 48px;
+    text-align: end;
+    margin-right: 10px;
 }
 
 .operations-container {
@@ -32,7 +39,7 @@
     height: 490px;
 }
 
-.btn-btn-red {
+.clear{
     background-color: rgb(202, 70, 70);
     color: rgb(255, 255, 255);
     padding: 10px 20px;

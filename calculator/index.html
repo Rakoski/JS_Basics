@@ -11,44 +11,41 @@
 <body> 
     <div class="main">
         <div class="showing">
-            <div class="previous-operation"></div>
-            <div class="now-operation"></div>
+            <div class="previous-operation" id="previous-operation"></div>
+            <div class="current-number" id="displayNumber"></div>
         </div>
         <div class="operations-container">
             <button
-            class="btn-btn-red"
-            id="clearBtn"
-            onclick="this.blur();"
-          >
+            class="clear"
+            onclick="javascript:reset();">
             CLEAR
           </button>
           <button
             class="btn-btn-blue"
             id="deleteBtn"
-            onclick="this.blur();"
-          >
+            onclick="">
             DELETE
           </button>
           <div class="buttons-container">
-            <button class="btn" onclick="this.blur();" data-number>7</button>
-            <button class="btn" onclick="this.blur();" data-number>8</button>
-            <button class="btn" onclick="this.blur();" data-number>9</button>
-            <button class="btn" onclick="this.blur();" data-operator>÷</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="7">7</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="8">8</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="9">9</button>
+            <button class="btn" onclick="registerOperator(this)" data-operator="/">÷</button>
   
-            <button class="btn" onclick="this.blur();" data-number>4</button>
-            <button class="btn" onclick="this.blur();" data-number>5</button>
-            <button class="btn" onclick="this.blur();" data-number>6</button>
-            <button class="btn" onclick="this.blur();" data-operator>×</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="4">4</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="5">5</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="6">6</button>
+            <button class="btn" onclick="registerOperator(this)" data-operator="*">×</button>
   
-            <button class="btn" onclick="this.blur();" data-number>1</button>
-            <button class="btn" onclick="this.blur();" data-number>2</button>
-            <button class="btn" onclick="this.blur();" data-number>3</button>
-            <button class="btn" onclick="this.blur();" data-operator>−</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="1">1</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="2">2</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="3">3</button>
+            <button class="btn" onclick="registerOperator(this)" data-operator="-">−</button>
   
-            <button class="btn" onclick="this.blur();" id="pointBtn">.</button>
-            <button class="btn" onclick="this.blur();" data-number>0</button>
-            <button class="btn" onclick="this.blur();" id="equalsBtn">=</button>
-            <button class="btn" onclick="this.blur();" data-operator>+</button>
+            <button class="btn" onclick="registerNumber(this);" id="pointBtn">.</button>
+            <button class="btn" onclick="registerNumber(this);" data-number="0">0</button>
+            <button class="btn" onclick="javascript:calculateExpression()" id="equalsBtn">=</button>
+            <button class="btn" onclick="registerOperator(this)" data-operator="+">+</button>
           </div>
         </div>
     </div>
