@@ -22,7 +22,7 @@ function registerOperator(button) {
     displayElement.textContent = currentDisplay;
     colocaEmCima(currentDisplay)
   }
-}
+};
 
 function isOperatorPresent() {
   const operators = ["+", "-", "*", "/"];
@@ -35,7 +35,6 @@ function isOperatorPresent() {
 };
 
 function reset() {
-  console.log(previousOperationElement.textContent, typeof previousOperationElement.textContent) 
   currentDisplay = "";
   displayElement.textContent = "";
   previousOperationElement.textContent = "";
@@ -47,8 +46,8 @@ function colocaEmCima(oqueColocar) {
 
 function calculateExpression() {
   let expression = previousOperationElement.textContent
-  var operands = expression.split(/[\+\-\*\/]/);
-  var operators = expression.split(/[\d\.]+/).filter(Boolean);
+  var operands = expression.split(/[-+*/]/);
+  var operators = expression.split(/[\d.]+/).filter(Boolean);
 
   // Applying operators sequentially
   var result = parseFloat(operands[0]);
@@ -66,12 +65,21 @@ function calculateExpression() {
         result *= operand;
         break;
       case "/":
+        if(operand == 0) {
+          return reset()
+        }
         result /= operand;
         break;
     }
   }
 
-  displayElement.textContent = result.toFixed(3);
+  let formattedNumber = parseFloat(result.toFixed(20)).toFixed(3);
+
+  if (formattedNumber.indexOf('.') !== -1) {
+    formattedNumber = formattedNumber.replace(/\.?0*$/, '');
+  }
+
+  return displayElement.textContent = formattedNumber
 }
 
 
