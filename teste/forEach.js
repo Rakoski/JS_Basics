@@ -8,6 +8,8 @@ numeros.forEach((item, index, arrayCompleto) => {
     }
 })
 
+
+
 // é a mesma coisa que usar um forof
 
 // for (const elemento of numeros) {
