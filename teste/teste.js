@@ -9,6 +9,12 @@ let maiorNumero = 0;
 let numeroInformado;
 let contador = 0;
 
+function verificaTeste() {
+    for (let i = 0; i <= 9; i+=2) {
+        console.log(i);
+    }
+}
+
 function verificarMaiorNumero() {
     leitor.question("Digite um número: ", function(numero) {
         numeroInformado = parseFloat(numero);
@@ -37,4 +43,5 @@ function verificarMaiorNumero() {
     });
 }
 
+verificaTeste();
 verificarMaiorNumero();
